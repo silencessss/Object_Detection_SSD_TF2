@@ -6,6 +6,12 @@ This project is refer [it](https://github.com/calmisential/TensorFlow2.0_SSD).
 - Python >=3.8
 - TensorFlow >=2.4.1
 
+### Implement detail (author)
+- OS      :Windows 10 with ANACONDA
+- GPU     :NVIDIA GeForce RTX 3060
+- CPU     :Intel(R) Core(TM) i5-9400F @ 2.90GHz
+- Dataset :SnacksMIT   
+
 ## Usage
 ### TrainVal
 1. Prepared your dataset. For instance, PASCAL VOC dataset.
