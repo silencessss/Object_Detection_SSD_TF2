@@ -1,0 +1,86 @@
+# training parameters
+EPOCHS = 100
+BATCH_SIZE = 8
+
+IMAGE_HEIGHT = 300
+IMAGE_WIDTH = 300
+CHANNELS = 3
+
+load_weights_from_epoch = -1
+save_frequency = 5
+
+test_picture_dir = ""
+
+test_images_during_training = False
+training_results_save_dir = "./test_pictures/"
+test_images_dir_list = ["", ""]
+
+# When the iou value of the anchor and the real box is less than the IoU_threshold,
+# the anchor is divided into negative classes, otherwise positive.
+# IOU_THRESHOLD = 0.6
+
+# generate anchor
+ASPECT_RATIOS = [[2.0, 0.5],
+                 [2.0, 0.5, 3.0, 1.0 / 3.0],
+                 [2.0, 0.5, 3.0, 1.0 / 3.0],
+                 [2.0, 0.5, 3.0, 1.0 / 3.0],
+                 [2.0, 0.5],
+                 [2.0, 0.5]]
+
+# SSD中每個stage分支輸出的feature map中每個像素位置的候選框数量
+STAGE_BOXES_PER_PIXEL = [len(x) + 2 for x in ASPECT_RATIOS]
+
+DOWNSAMPLING_RATIOS = [8, 16, 32, 64, 100, 300]
+
+# SSD網路結構的所有輸出feature map的大小（H * W）
+FEATURE_MAPS = [(38, 38), (19, 19), (10, 10), (5, 5), (3, 3), (1, 1)]
+
+# 每個feature map對應的候選框尺寸（相對於原始輸入影像的resolution）
+DEFAULT_BOXES_SIZES = [(30, 60), (60, 111), (111, 162), (162, 213), (213, 264), (264, 315)]
+
+# focal loss
+alpha = 0.25
+gamma = 2.0
+
+reg_loss_weight = 0.5
+
+# dataset
+PASCAL_VOC_DIR = "./dataset/VOCdevkit/image-600x600-voc/"
+# The 20 object classes of PASCAL VOC
+# OBJECT_CLASSES = {"person": 1, "bird": 2, "cat": 3, "cow": 4, "dog": 5,
+#                   "horse": 6, "sheep": 7, "aeroplane": 8, "bicycle": 9,
+#                   "boat": 10, "bus": 11, "car": 12, "motorbike": 13,
+#                   "train": 14, "bottle": 15, "chair": 16, "diningtable": 17,
+#                   "pottedplant": 18, "sofa": 19, "tvmonitor": 20}
+'''
+OBJECT_CLASSES = {"aeroplane": 1, "bicycle": 2, "bird": 3, "boat": 4,
+                  "bottle": 5, "bus": 6, "car": 7, "cat": 8, "chair": 9,
+                  "cow": 10, "diningtable": 11, "dog": 12, "horse": 13,
+                  "motorbike": 14, "person": 15, "pottedplant": 16,
+                  "sheep": 17, "sofa": 18, "train": 19, "tvmonitor": 20}
+'''
+OBJECT_CLASSES = {"cocacola": 1, "cashewnuts": 2, "M_MBIG": 3, "M_MSMALL": 4,
+                  "Hot-Chili-Squid-Flavor": 5, "Original-Flavor": 6, "Thai-Spicy-Mixed-Nuts": 7, "Pon-De-Strawberry-Honey": 8, "Pon-de-Strawberry": 9,
+                  "Pon-De-Double-Chocolate": 10, "Old-Fashioned": 11, "Pon-De-Soybean": 12, "Pringles": 13,
+                  "TARO-FISH-SNACK": 14, "SALTED-PEANUTS": 15, "MANDARIN": 16,
+                  "SPEARMINT": 17, "Choco-Old-Fashioned": 18, "Pon-De-Chocolate": 19, "Fried-Seaweed": 20,
+                  "Pon-De-Yogurt":21, "Strawberry-Ring":22, "Sugar-Ring":23} 
+
+NUM_CLASSES = len(OBJECT_CLASSES) + 1
+
+TXT_DIR = "voc.txt"
+
+
+MAX_BOXES_PER_IMAGE = 20
+
+VARIANCE = [0.1, 0.2]
+
+# nms
+NMS_THRESHOLD = 0.45
+CONFIDENCE_THRESHOLD = 0.01
+MAX_BOXES_NUM = 200
+
+
+# directory of saving model
+save_model_dir = "./saved_model/"
+
