@@ -1,3 +1,5 @@
+![TensorFlow](https://img.shields.io/badge/Tensorflow-%3E%3D2.4.1-orange)
+![Python](https://img.shields.io/badge/Python-%3E%3D3.8-blue)
 # Object_Detection_SSD_TF2
 A TensorFlow 2.4.1 implementation of Single Shot MultiBox Detector (SSD).
 This project is refer [it](https://github.com/calmisential/TensorFlow2.0_SSD). 
